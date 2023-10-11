@@ -1,0 +1,21 @@
+package com.company;
+
+public class Form {
+
+    private String text;
+
+    public Form() {
+        this.text = "";
+    }
+
+    public void addText(String newText) {
+        this.text += newText;
+    }
+
+    @Override
+    public String toString() {
+        return "Form{" +
+                "text='" + text + '\'' +
+                '}';
+    }
+}
