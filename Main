@@ -1,0 +1,51 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to the Automatic Form Filler!" +
+                "Please Insert a document as a PDF File :)" +
+                "(Press 1 to insert the mock document)\n");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an integer: ");
+        int check = scanner.nextInt();
+
+        String firstName = "Luigi";
+        String lastName = "Mazzocchi";
+        String dateOfBirth = "10/27/2001";
+        String address = "1400 John F Kennedy Blvd, Philadelphia, PA";
+        String height = "5'7 ft";
+        String weight = "180 lbs";
+        String shoeSize = "10 men";
+        String jerseyNumber = "27";
+
+        if(check == 1) {
+            Form form = new Form();
+            Filler filler = new Filler();
+            filler.fillForm(form, firstName, lastName, dateOfBirth, address, height, weight, shoeSize, jerseyNumber);
+            System.out.println("Form after filling: " + form);
+        }
+        else {
+            System.out.println("You didn't enter 1!");
+        }
+    }
+
+    static class Filler {
+        public void fillForm(Form form, String firstName, String lastName, String dob, String address,
+                             String height, String weight, String shoeSize, String jerseyNumber) {
+            form.addText("NBA Try-Out Form\n\n");
+            form.addText("First Name: " + firstName + "\n");
+            form.addText("Last Name: " + lastName + "\n");
+            form.addText("Date of Birth: " + dob + "\n");
+            form.addText("Address: " + address + "\n");
+            form.addText("Height: " + height + "\n");
+            form.addText("Weight: " + weight + "\n");
+            form.addText("Shoe Size: " + shoeSize + "\n");
+            form.addText("Jersey Number: " + jerseyNumber);
+        }
+    }
+}
